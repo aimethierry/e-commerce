@@ -1,0 +1,23 @@
+
+
+
+{% extends "base.html" %}
+ {% block content %}
+
+<h3>{{ object }}</h3>
+
+
+
+<div class='row'>
+     {% for product in object.product_set.all %}
+
+    <div class='col-xs-4'>
+        <div class="thumbnail text-center">
+                 {% include "product/product_thumbnail.html" with product=product price=true %}
+                </div>
+                {% cycle '' '' '</div><div class="row">' %}
+                {% endfor %}
+                
+                </div>
+                
+                {% endblock %}
