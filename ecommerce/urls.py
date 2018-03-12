@@ -20,9 +20,8 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 
-
-from cart.views import CartView, ItemCountView, CheckoutView
-from orders.views import AddressSelectFormView
+from orders.views import AddressSelectFormView, UserAddressCreateView
+from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
@@ -34,7 +33,9 @@ urlpatterns = [
     url(r'^cart/$', CartView.as_view(), name='cart'),
     url(r'^cart/count/$', ItemCountView.as_view(), name='item_count'),
     url(r'^checkout/$', CheckoutView.as_view(), name='checkout'),
-     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
+    url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
+    url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
+    url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
 
 ]
 
