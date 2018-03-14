@@ -119,3 +119,10 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-serve")
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+#braintree payment details
+BRAINTREE_PUBLIC = "2zsw2zptz5mz7p7y",
+BRAINTREE_PRIVATE = "36ad0522f8c024ab73d9fa4995846f48",
+BRAINTREE_MERCHANDE_ID = "c6d6xn4zpdmm3g6t",
+BRAINTREE_ENVIRONMENT = "sandbox",

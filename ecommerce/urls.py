@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 
-from orders.views import AddressSelectFormView, UserAddressCreateView
+from orders.views import AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
 
 urlpatterns = [
@@ -31,6 +31,8 @@ urlpatterns = [
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^cart/$', CartView.as_view(), name='cart'),
+    url(r'^orders/$', OrderList.as_view(), name='orders'),
+    url(r'^orders/(?P<pk>\d+)/$', OrderDetail.as_view(), name='order_detail'),
     url(r'^cart/count/$', ItemCountView.as_view(), name='item_count'),
     url(r'^checkout/$', CheckoutView.as_view(), name='checkout'),
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),

@@ -5,8 +5,6 @@
         Select your addresses for this order.
     </p>
     <form method="POST" action=''>{% csrf_token %} {{ form|crispy }}
-
-
         <input class='btn btn-default' type='submit' value='Select' />
 
     </form>
