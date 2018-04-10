@@ -36,6 +36,7 @@
                 <li>
                     <a href='{% url 'cart' %}'>
                         <i class="fa fa-shopping-cart fa-navbar-cart"></i>
+                        
                         <span id="cart-count-badge" class='badge'>{{ request.session.cart_item_count }}</span>
                     </a>
                 </li>
@@ -45,6 +46,9 @@
                 </li>
                 <li>
                     <a href="/logout">Logout</a>
+                </li>
+                <li>
+                    <a href="{% url 'orders' %}">Orders</a>
                 </li>
                 {% else %}
                 <li>
@@ -57,7 +61,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
 
-                        <form class='navbar-form' method='POST' action='/login/'>{% csrf_token %}
+                        <form class='navbar-form' method='POST' action='/api-token-auth/'>{% csrf_token %}
                             <div class='form-group'>
                                 <input type='text' class='form-control' name='username' placeholder='Username' />
                             </div>

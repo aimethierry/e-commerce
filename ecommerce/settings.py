@@ -42,6 +42,8 @@ INSTALLED_APPS = (
     'crispy_forms',
     'cart',
     'orders',
+    'rest_framework',
+    
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,6 +59,17 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'ecommerce.urls'
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ),
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -122,7 +135,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 #braintree payment details
+# BRAINTREE_PUBLIC = "qn3p5n7njksw47r3"
+# BRAINTREE_PRIVATE = "d14ac944794c0df1c81991ecf49221ff"
+# BRAINTREE_MERCHANT_ID = "n84nynknvzz3j3sz"
+# BRAINTREE_ENVIRONEMNT = "Sandbox"
 BRAINTREE_PUBLIC = "2zsw2zptz5mz7p7y",
 BRAINTREE_PRIVATE = "36ad0522f8c024ab73d9fa4995846f48",
-BRAINTREE_MERCHANDE_ID = "c6d6xn4zpdmm3g6t",
+BRAINTREE_MERCHANT_ID = "c6d6xn4zpdmm3g6t",
 BRAINTREE_ENVIRONMENT = "sandbox",
+

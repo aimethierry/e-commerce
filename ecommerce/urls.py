@@ -22,6 +22,7 @@ from django.conf import settings
 
 from orders.views import AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
+from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
@@ -38,6 +39,7 @@ urlpatterns = [
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
     url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
+    url(r'^api-token-auth/$', obtain_jwt_token, {'template_name': 'registration/login.html'}, name='login'),
 
 ]
 

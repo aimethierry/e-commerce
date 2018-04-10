@@ -1,4 +1,17 @@
-{% extends "base.html" %} {% load i18n %} {% load crispy_forms_tags %} {% block content %} {% if not user_can_continue %}
+{% extends "base.html" %} {% load i18n %} {% load crispy_forms_tags %}
+
+
+
+
+
+<script>
+    {% block jquery %}
+    var clientToken = "{{ client_token }}";
+    braintree.setup(clientToken, "dropin", {
+        container: "payment-form"
+    });
+    {% endblock %}
+</script> {% block content %} {% if not user_can_continue %}
 <div class='col-sm-6'>
     <p class='lead'>Continue as Guest</p>
 
@@ -12,7 +25,7 @@
 </div>
 <div class='col-sm-6'>
     <p class='lead'>Login to Continue</p>
-    <form method='POST' action="{% url 'auth_login' %}"> {% csrf_token %} {{ login_form|crispy }}
+    <form method='POST' action="/login/"> {% csrf_token %} {{ login_form|crispy }}
 
         <input type='hidden' name='next' value='{{ next_url }}' />
         <input type='submit' class='btn btn-success' value='Login' />
@@ -20,9 +33,9 @@
     <p class='text-center'>
 
         <p>{% trans "Forgot password" %}?
-            <a href="{% url 'auth_password_reset' %}">{% trans "Reset it" %}</a>!</p>
+            <a href="">{% trans "Reset it" %}</a>!</p>
         <p>{% trans "Not member" %}?
-            <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>!</p>
+            <a href="">{% trans "Register" %}</a>!</p>
     </p>
 
 </div>
@@ -39,8 +52,9 @@
     </p>
     <br/>
 
-    <form method='POST' action="{% url 'checkout_final' %}">{% csrf_token %}
-        <input type='hidden' name='payment_token' value='ABC' />
+    <form id="checkout" method='POST' action="{% url 'checkout_final' %}">{% csrf_token %}
+        <!-- <input type='hidden' name='payment_token' value='ABC' /> -->
+        <div id="payment-form"></div>
         <p>
             <b>
                 <button type='submit'>Complete Order</button>
@@ -48,6 +62,9 @@
 
         </p>
     </form>
+
+
+
 
 </div>
 
