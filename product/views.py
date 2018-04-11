@@ -100,4 +100,6 @@ class ProductDetailView(DetailView):
 		context["related"] = sorted(Product.objects.get_related(instance)[:6] , key=lambda x: random.random())
 		return context
 
+
+
     
