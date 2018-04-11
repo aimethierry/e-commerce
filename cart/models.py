@@ -57,7 +57,7 @@ class Cart(models.Model):
 		return str(self.id)
 
 	def update_subtotal(self):
-		print "updating..."
+		# print ("updating...")
 		subtotal = 0
 		items = self.cartitem_set.all()
 		for item in items:
