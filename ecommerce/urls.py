@@ -22,7 +22,6 @@ from django.conf import settings
 
 from orders.views import AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
-from rest_framework_jwt.views import obtain_jwt_token
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
