@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'cart',
     'orders',
-    'rest_framework',
+   
     
 )
 
@@ -55,6 +55,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 )
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -144,3 +145,4 @@ BRAINTREE_PRIVATE = "36ad0522f8c024ab73d9fa4995846f48",
 BRAINTREE_MERCHANT_ID = "c6d6xn4zpdmm3g6t",
 BRAINTREE_ENVIRONMENT = "sandbox",
 
+STATICFILES_STORAGE='whitenoise.django.GzipManifestStaticFilesStorage'

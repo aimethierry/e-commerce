@@ -39,8 +39,7 @@ urlpatterns = [
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
     url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
-    url(r'^api-token-auth/$', obtain_jwt_token, {'template_name': 'registration/login.html'}, name='login'),
-
+   
 ]
 
 if  settings.DEBUG:

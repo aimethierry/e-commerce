@@ -7,7 +7,6 @@ configparser==3.5.0
 dj-database-url==0.3.0
 Django==1.8.4
 django-crispy-forms==1.7.0
-djangorestframework==3.6.0
 djangorestframework-jwt==1.11.0
 enum34==1.1.6
 gunicorn==19.7.1
@@ -23,4 +22,5 @@ requests==2.18.4
 singledispatch==3.4.0.3
 six==1.11.0
 urllib3==1.22
+whitenoise==3.3.1
 wrapt==1.10.11
