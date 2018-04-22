@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+
         },
     },
 ]
@@ -121,6 +122,11 @@ STATICFILES_DIRS = [
 # will be served
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static-serve")
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+ACCOUNT_ACTIVATION_DAYS = 7 
+REGISTRATION_AUTO_LOGIN = True 
 
 
 MEDIA_URL = '/media/'

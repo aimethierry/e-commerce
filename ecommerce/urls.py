@@ -20,8 +20,10 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 
+
 from orders.views import AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
+from newsletter import views
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
@@ -38,6 +40,11 @@ urlpatterns = [
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
     url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
+    
+    
+   
+    url(r'^accounts/', include('registration.backends.default.urls')),
+
    
 ]
 
