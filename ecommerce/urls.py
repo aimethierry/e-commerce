@@ -42,8 +42,6 @@ urlpatterns = [
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
     
     
-   
-    url(r'^accounts/', include('registration.backends.default.urls')),
 
    
 ]
