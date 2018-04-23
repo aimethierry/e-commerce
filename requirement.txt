@@ -6,10 +6,12 @@ certifi==2018.1.18
 cffi==1.11.5
 chardet==3.0.4
 configparser==3.5.0
+confusable-homoglyphs==3.0.0
 cryptography==2.2.2
 dj-database-url==0.3.0
 Django==1.8.4
 django-crispy-forms==1.7.0
+django-registration==2.4.1
 django-registration-redux==2.4
 djangorestframework-jwt==1.11.0
 enum34==1.1.6
