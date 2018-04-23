@@ -5,7 +5,6 @@
     {% block jquery %}
     $(".item-qty").change(function () {
         // $(this).next(".btn-update").fadeIn();
-
         // event.preventDefault();
         // .prev(h1)
         var item = $(this).prev("input[type='hidden']").val();
@@ -32,14 +31,11 @@
                     $("#taxtotal").text(data.tax_total);
                     $("#carttotal").text(data.cart_total);
                 }
-
                 if (data.total_items == 0) {
                     $(".table").fadeOut()
-                    var template = "{% include 'carts/empty_cart.html' %}";
+                    var template = "{% include 'cart/empty_cart.html' %}";
                     $(".main-content").html(template);
-
                 }
-
                 var message = ""
                 if (data.item_added) {
                     message = "New item added"
@@ -57,21 +53,17 @@
                 $("#add-form").submit()
             }
         })
-
-
-
-
-
     });
-
     {% endblock %}
 </script> {% block content %}
 
 
 <div class='row main-content'>
 
-    {% if object.cartitem_set.count
-    < 1 %} {% include "carts/empty_cart.html" %} {% else %} <div class='col-sm-8 col-sm-offset-2'>
+    {% if object.cartitem_set.count < 1 %}
+     {% include "cart/empty_cart.html" %}
+      {% else %}
+       <div class='col-sm-8 col-sm-offset-2'>
 
         <h1>Your cart</h1>
         <table class='table'>
@@ -126,7 +118,7 @@
 
             <tr>
                 <td colspan='4' class='text-right'>
-                    <a class='btn btn-warning' href="{% url 'checkout' %}">Checkout </a>
+                    <a class='btn btn-warning' href="/checkout">Checkout </a>
                 </td>
             </tr>
 
@@ -138,3 +130,6 @@
 
 </div>
 {% endblock %}
+
+
+
