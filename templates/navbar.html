@@ -63,7 +63,7 @@
                     </a>
                     <ul class="dropdown-menu" role="menu">
 
-                        <form class='navbar-form' method='POST' action='{% url "auth_login" %}'>{% csrf_token %}
+                        <form class='navbar-form' method='POST' action='/login/'>{% csrf_token %}
                             <div class='form-group'>
                                 <input type='text' class='form-control' name='username' placeholder='Username' />
                             </div>
