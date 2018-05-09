@@ -83,7 +83,12 @@ def contact(request):
 
 
 
-
+# def app_login(request):
+# 	email = request.POST['email']
+#     password = request.POST['password']
+#     username = get_user(email)
+#     user = authenticate(username=username, password=password)
+# 	return render(request, "registration/login.html")
 
 
 

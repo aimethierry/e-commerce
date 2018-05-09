@@ -40,6 +40,8 @@ urlpatterns = [
     url(r'^checkout/address/$', AddressSelectFormView.as_view(), name='order_address'),
     url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
+    url(r'accounts/', include('django.contrib.auth.urls')),
+    # url(r'app/login', views.app_login, name="login"),
     
     
 
