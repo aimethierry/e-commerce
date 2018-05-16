@@ -4,9 +4,10 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic.detail import DetailView
 from  django.views.generic.list import ListView
+from django.contrib.auth.models import User
 # Create your views here.
 
-from .forms import AddressForm, UserAddressForm
+from .forms import AddressForm, UserAddressForm, UserForm
 from .mixins import CartOrderMixin, LoginRequiredMixin
 from .models import UserAddress, UserCheckout, Order
 
@@ -109,3 +110,9 @@ class AddressSelectFormView(CartOrderMixin, FormView):
 
 	def get_success_url(self, *args, **kwargs):
 		return "/checkout/"
+
+
+class UserCreate(CreateView):
+	model= User
+	template_name="registration/registration_form.html"
+	form_class= UserForm

@@ -54,7 +54,7 @@
                 </li>
                 {% else %}
                 <li>
-                    <a href="">Register</a>
+                    <a href="/signup">Register</a>
                 </li>
                 {% if not request.user.is_authenticated and not "/accounts/login" in request.get_full_path %}
                 <li class="dropdown">

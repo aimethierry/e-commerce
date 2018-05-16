@@ -21,9 +21,17 @@ from django.contrib.auth import views as auth_views
 from django.conf import settings
 
 
-from orders.views import AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
+
+from orders.views import UserCreate, AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
 from newsletter import views
+
+
+from django.conf.urls import (
+ handler404
+)
+
+handler404 = 'newsletter.views.page_not_found'
 
 urlpatterns = [
     url(r'^$', 'newsletter.views.home', name='home'),
@@ -31,6 +39,7 @@ urlpatterns = [
     url(r'^product/', include('product.urls')),
     url(r'^category/', include('product.urls_categories')),
     url(r'^login/$', auth_views.login, {'template_name': 'registration/login.html'}, name='login'),
+    url(r'^register/$', auth_views.login, {'template_name': 'registration/registration_form.html'}, name='login'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^cart/$', CartView.as_view(), name='cart'),
     url(r'^orders/$', OrderList.as_view(), name='orders'),
@@ -41,7 +50,10 @@ urlpatterns = [
     url(r'^checkout/address/add/$', UserAddressCreateView.as_view(), name='user_address_create'),
     url(r'^checkout/final/$', CheckoutFinalView.as_view(), name='checkout_final'),
     url(r'accounts/', include('django.contrib.auth.urls')),
+
     # url(r'app/login', views.app_login, name="login"),
+
+    url(r'^signup/$', views.signup, name='signup'),
     
     
 
