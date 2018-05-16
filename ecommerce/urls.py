@@ -22,7 +22,7 @@ from django.conf import settings
 
 
 
-from orders.views import UserCreate, AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
+from orders.views import AllOrders, UserCreate, AddressSelectFormView, UserAddressCreateView, OrderList,OrderDetail
 from cart.views import CartView, ItemCountView, CheckoutView, CheckoutFinalView
 from newsletter import views
 
@@ -54,6 +54,7 @@ urlpatterns = [
     # url(r'app/login', views.app_login, name="login"),
 
     url(r'^signup/$', views.signup, name='signup'),
+    url(r'^all/order/$', AllOrders.as_view(), name='item_count'),
     
     
 

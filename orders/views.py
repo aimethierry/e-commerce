@@ -116,3 +116,10 @@ class UserCreate(CreateView):
 	model= User
 	template_name="registration/registration_form.html"
 	form_class= UserForm
+
+
+
+class AllOrders(ListView):
+	model= Order
+	queryset = Order.objects.all()
+	template_name="all-orders.html"
