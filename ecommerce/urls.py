@@ -56,6 +56,7 @@ urlpatterns = [
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^all/order/$', AllOrders.as_view(), name='item_count'),
     
+    url(r'^contact/$', views.contact, name='contact'),
     
 
    
